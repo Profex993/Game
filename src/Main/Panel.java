@@ -80,7 +80,6 @@ public class Panel extends JPanel implements Runnable {
                 fpsCounter++;
             }
             if (timer >= 1000000000) {
-                System.out.println("fps " + fpsCounter);
                 enemySpawn++;
                 strikeSpawn++;
                 if (enemySpawn == enemySpawnPoint) {
