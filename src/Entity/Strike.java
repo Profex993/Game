@@ -1,5 +1,6 @@
 package Entity;
 
+import Interfaces.DrawUpdate;
 import Main.Panel;
 import Main.SoundManager;
 
@@ -9,7 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Strike {
+public class Strike implements DrawUpdate {
 
     public BufferedImage image1 = null;
     public BufferedImage image2 = null;

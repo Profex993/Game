@@ -1,5 +1,6 @@
 package Entity;
 
+import Interfaces.DrawUpdate;
 import Main.KeyHandler;
 import Main.Panel;
 import Main.SoundManager;
@@ -10,7 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Player extends Entity {
+public class Player extends Entity implements DrawUpdate {
     Panel panel;
     KeyHandler key;
     SoundManager soundM;

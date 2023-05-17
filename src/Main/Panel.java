@@ -29,7 +29,6 @@ public class Panel extends JPanel implements Runnable {
     public ArrayList<Strike> strikeList = new ArrayList<>();
     public ArrayList<Projectile> projectileList = new ArrayList<>();
     public ArrayList<Enemy> enemyList = new ArrayList<>();
-    Strike strike = new Strike(this, player, soundM);
 
     public Panel() {
         this.setPreferredSize(new Dimension(960, 720));
@@ -129,7 +128,7 @@ public class Panel extends JPanel implements Runnable {
         player.draw(g2);
         for (int i = 0; i < projectileList.size(); i++) {
             Projectile projectile = projectileList.get(i);
-            g2.drawImage(projectile.image, projectile.x, projectile.y, projectile.projectileSize, projectile.projectileSize, null);
+            projectile.draw(g2);
         }
         for (int i = 0; i < enemyList.size(); i++) {
             Enemy enemy = enemyList.get(i);

@@ -1,5 +1,6 @@
 package Entity;
 
+import Interfaces.DrawUpdate;
 import Main.Panel;
 import Main.SoundManager;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
-public class Enemy extends Entity {
+public class Enemy extends Entity implements DrawUpdate {
     int playerX;
     int playerY;
     public BufferedImage image = null;

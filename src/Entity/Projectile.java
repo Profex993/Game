@@ -4,6 +4,7 @@ package Entity;
 import Main.Panel;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
@@ -67,5 +68,9 @@ public class Projectile extends Entity {
                 }
             }
         }
+    }
+
+    public void draw(Graphics2D g2){
+        g2.drawImage(image, x, y, projectileSize, projectileSize, null);
     }
 }
