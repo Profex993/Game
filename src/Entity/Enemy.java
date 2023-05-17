@@ -4,6 +4,7 @@ import Main.Panel;
 import Main.SoundManager;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
@@ -69,5 +70,9 @@ public class Enemy extends Entity {
             playerX = player.x - 24;
         }
 
+    }
+
+    public void draw(Graphics2D g2){
+        g2.drawImage(image, x, y, entitySize, entitySize, null);
     }
 }

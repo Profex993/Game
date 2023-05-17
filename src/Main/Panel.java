@@ -92,7 +92,7 @@ public class Panel extends JPanel implements Runnable {
                 if(strikeSpawn == strikeSpawnPoint){
                     addStrike();
                     strikeSpawn = 0;
-                    strikeSpawnPoint = rnd.nextInt(10)+1;
+                    strikeSpawnPoint = rnd.nextInt(7)+3;
                 }
                 fps = fpsCounter;
                 frames++;
@@ -133,7 +133,7 @@ public class Panel extends JPanel implements Runnable {
         }
         for (int i = 0; i < enemyList.size(); i++) {
             Enemy enemy = enemyList.get(i);
-            g2.drawImage(enemy.image, enemy.x, enemy.y, enemy.entitySize, enemy.entitySize, null);
+            enemy.draw(g2);
         }
         if (!player.active) {
             Font font2 = new Font("arial", Font.BOLD, 100);
