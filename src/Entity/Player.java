@@ -51,9 +51,15 @@ public class Player extends Entity implements DrawUpdate {
     public void update() {
         if (key.up) {
             direction = "up";
+            if (y < 0){
+                y = 200;
+            }
             y -= speed;
         } else if (key.down) {
             direction = "down";
+            if (y > 360){
+                health = 0;
+            }
             y += speed;
         } else if (key.left) {
             direction = "left";
@@ -69,10 +75,6 @@ public class Player extends Entity implements DrawUpdate {
             } else {
                 x = 480;
             }
-        } else if (y < 0) {
-            y = 204;
-        } else if (y > 360) {
-            health = 0;
         } else if (key.shot && !projectileAdded && !direction.equals("up")) {
             panel.projectileList.add(new Projectile(x, y, "down", true, true, this, panel));
             soundM.play(5);
