@@ -3,14 +3,25 @@ package Main;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * this method catches user keyboard input
+ */
 public class KeyHandler implements KeyListener {
     public boolean up, down, left, right, shot;
 
+    /**
+     * scans which key was pressed
+     * @param e the event to be processed
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     * this method lets you select what to do when some key is pressed
+     * @param e the event to be processed
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -31,6 +42,10 @@ public class KeyHandler implements KeyListener {
         }
     }
 
+    /**
+     * whis method lets you decide what will happened when some key is released
+     * @param e the event to be processed
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();

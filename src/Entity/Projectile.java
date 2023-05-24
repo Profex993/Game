@@ -9,6 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * this class adds projectiles to the game
+ */
 public class Projectile extends Entity {
 
     public BufferedImage image;
@@ -17,6 +20,7 @@ public class Projectile extends Entity {
     Player player;
     Panel panel;
 
+    //constructor for this class
     public Projectile(int x, int y, String direction, boolean active, boolean fromPlayer, Player player, Panel panel) {
         this.x = x;
         this.y = y + 15;
@@ -29,6 +33,9 @@ public class Projectile extends Entity {
         getImage();
     }
 
+    /**
+     * this method reads the textures of projectile.
+     */
     public void getImage() {
         try {
             down = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("prefab/bullet.png")));
@@ -42,13 +49,20 @@ public class Projectile extends Entity {
         }
     }
 
+    /**
+     * this method makes the projectile update
+     */
     public void update() {
+        //movement of the projectile
         if (direction.equals("down")) {
             y += speed;
         } else if (direction.equals("up")) {
             y -= speed;
         }
 
+        //destroying the projectile to decrease computing load
+        //first else if checks if projectile from enemy is hitting player
+        //second else if checks if player projectile is hitting an enemy
         if (y <= 5 || y >= 710) {
             panel.projectileList.remove(this);
         } else if ((y >= player.y && y < player.y + 60) && (x >= player.x && x < player.x + 60)) {
@@ -57,7 +71,6 @@ public class Projectile extends Entity {
                 player.health -= damageEnemy;
                 panel.projectileList.remove(this);
             }
-
         } else if (fromPlayer) {
             for (int i = 0; i < panel.enemyList.size(); i++) {
 
@@ -70,6 +83,10 @@ public class Projectile extends Entity {
         }
     }
 
+    /**
+     * this method draws the projectile
+     * @param g2
+     */
     public void draw(Graphics2D g2){
         g2.drawImage(image, x, y, projectileSize, projectileSize, null);
     }

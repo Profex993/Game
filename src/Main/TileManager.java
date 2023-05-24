@@ -33,13 +33,13 @@ public class TileManager {
 
     public void addTiles() {
         for (int i = 140; i > 0; i--) {
-            tiles.add(new Tile(tile1, false));
+            tiles.add(new Tile(tile1));
         }
         for (int i = 40; i > 0; i--) {
-            tiles.add(new Tile(tile2, true));
+            tiles.add(new Tile(tile2));
         }
         for (int i = 140; i > 0; i--) {
-            tiles.add(new Tile(tile1, false));
+            tiles.add(new Tile(tile1));
         }
 
     }

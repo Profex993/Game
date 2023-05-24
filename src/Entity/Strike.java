@@ -10,6 +10,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * this class is for airstrikes
+ */
 public class Strike implements DrawUpdate {
 
     public BufferedImage image1 = null;
@@ -27,21 +30,37 @@ public class Strike implements DrawUpdate {
     Player player;
     SoundManager soundM;
 
+    /**
+     * constructor for strike
+     * @param panel object of the Panel class
+     * @param player object of the Player class
+     * @param soundM object of the SoundManager class
+     */
     public Strike(Panel panel, Player player, SoundManager soundM) {
-        try {
-            this.image2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("prefab/explosion.png")));
-            this.image1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("prefab/shadow.png")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         this.panel = panel;
         this.player = player;
         this.soundM = soundM;
         this.playerX = player.x - 24;
         this.playerY = player.y - 24;
         this.gameTick = panel.frames;
+        getImage();
     }
 
+    /**
+     * this method reads teh textures of the airstrike
+     */
+    public void getImage(){
+        try {
+            this.image2 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("prefab/explosion.png")));
+            this.image1 = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("prefab/shadow.png")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * this method updates the airstrike
+     */
     public void update() {
         if (gameTick + timeout == panel.frames && soundActive) {
             stage = true;
@@ -58,6 +77,10 @@ public class Strike implements DrawUpdate {
 
     }
 
+    /**
+     * draw method to display the airstrike
+     * @param g2 2D graphics
+     */
     public void draw(Graphics2D g2) {
         if (!stage) {
             g2.drawImage(image1, playerX, playerY, size, size, null);
