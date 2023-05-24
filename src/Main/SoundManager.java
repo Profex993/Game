@@ -29,4 +29,15 @@ public class SoundManager {
         }
         clip.start();
     }
+
+    public void loop(int opt){
+        try {
+            AudioInputStream aIS = AudioSystem.getAudioInputStream(soundUrl[opt]);
+            clip = AudioSystem.getClip();
+            clip.open(aIS);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        clip.loop(100);
+    }
 }

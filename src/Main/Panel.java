@@ -43,7 +43,7 @@ public class Panel extends JPanel implements Runnable {
         thread.start();
 
         //addEnemy();
-        soundM.play(0);
+        soundM.loop(0);
     }
 
     public void addEnemy() {
