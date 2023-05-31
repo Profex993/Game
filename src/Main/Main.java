@@ -8,7 +8,7 @@ public class Main {
         Panel panel = new Panel();
         window.add(panel);
 
-        window.setTitle("The best game developed in Litvinov");
+        window.setTitle("Escape from Litvínov");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
         window.pack();

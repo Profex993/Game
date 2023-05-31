@@ -85,7 +85,7 @@ public class Projectile extends Entity {
 
     /**
      * this method draws the projectile
-     * @param g2
+     * @param g2 2D graphics
      */
     public void draw(Graphics2D g2){
         g2.drawImage(image, x, y, projectileSize, projectileSize, null);

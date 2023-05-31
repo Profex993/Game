@@ -33,7 +33,6 @@ public class Player extends Entity implements DrawUpdate {
         this.entitySize = 64;
         this.health = 100;
         this.active = true;
-        this.speed = 16;
         x = 400;
         y = 100;
         speed = 8;
