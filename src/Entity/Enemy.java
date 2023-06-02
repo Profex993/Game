@@ -25,21 +25,33 @@ public class Enemy extends Entity implements DrawUpdate {
 
     /**
      * constructor for Enemy class
-     * @param x position of the enemy
-     * @param y position of the enemy
-     * @param pX player position x
-     * @param pY player position y
+     *
+     * @param x      position of the enemy
+     * @param y      position of the enemy
+     * @param pX     player position x
+     * @param pY     player position y
      * @param player Player object
-     * @param panel Panel object
+     * @param panel  Panel object
      * @param soundM SoundManager object
      */
     public Enemy(int x, int y, int pX, int pY, Player player, Panel panel, SoundManager soundM) {
+
+        if (x % 2 == 1) {
+            this.x = x + 1;
+        } else {
+            this.x = x;
+        }
+
+        if (pX % 2 == 1) {
+            this.playerX = pX + 1;
+        } else {
+            this.playerX = pX;
+        }
+
         this.entitySize = 64;
         this.direction = "up";
-        this.x = x;
         this.y = y;
         this.health = 100;
-        this.playerX = pX;
         this.playerY = pY;
         this.player = player;
         this.panel = panel;
@@ -103,9 +115,10 @@ public class Enemy extends Entity implements DrawUpdate {
 
     /**
      * method for drawing the enemy
+     *
      * @param g2 Graphic 2D
      */
-    public void draw(Graphics2D g2){
+    public void draw(Graphics2D g2) {
         g2.drawImage(image, x, y, entitySize, entitySize, null);
     }
 }
